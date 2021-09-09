@@ -1,6 +1,5 @@
 package web.service;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import web.model.Car;
 
@@ -22,7 +21,7 @@ public class CarService {
         list = new ArrayList<>(Arrays.asList(car1, car2, car3, car4, car5));
     }
 
-    public List<Car> getCars(int number) {
-        return list.stream().limit(number).limit(5).collect(Collectors.toList());
+    public List<Car> getCars(Integer number) {
+        return (number == null) ? list : list.stream().limit(number).limit(5).collect(Collectors.toList());
     }
 }
